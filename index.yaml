@@ -1,0 +1,34 @@
+apiVersion: v1
+entries:
+  pg-selector:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-04-26T21:36:59.796351159Z"
+    description: A Helm chart for PG Selector, a little companion for your Postgres
+      HA deployment on Kubernetes  that labels its pods with the current replication
+      role(realtime)
+    digest: fad113942e58bb7a3f59b18c58d749104eceef061edd2eabf2bfafeaccb87cc6
+    home: https://github.com/freepik-company/pg-selector
+    keywords:
+    - freepik
+    - prosimcorp
+    - pg-selector
+    - gitops
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: ahernandez@freepik.com
+      name: Alby Hernández
+      url: https://github.com/freepik-company/pg-selector
+    - email: svargas@freepik.com
+      name: Sebastián Vargas
+      url: https://github.com/freepik-company/pg-selector
+    - name: prosimcorp
+      url: https://github.com/prosimcorp
+    name: pg-selector
+    sources:
+    - https://github.com/freepik-company/pg-selector
+    type: application
+    urls:
+    - pg-selector-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-04-26T21:36:59.796361428Z"
