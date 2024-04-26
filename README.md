@@ -34,6 +34,10 @@ and labels them with the role.
 This way you can create a Kubernetes Service that points always to the 'primary' 
 deleting the need of a complicated proxy on small HA deployments
 
+## Diagram
+
+<img src="https://raw.githubusercontent.com/achetronic/pg-selector/master/docs/img/pg-selector.png" alt="PG Selector diagram" width="600">
+
 ## Flags
 
 Every configuration parameter can be defined by flags that can be passed to the CLI.
