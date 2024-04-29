@@ -56,7 +56,7 @@ const (
 )
 
 var (
-	pgConnectionStringEnv = os.Getenv("PG_CONNECTION_STRING")
+	pgConnectionStringEnv = os.ExpandEnv(os.Getenv("PG_CONNECTION_STRING"))
 )
 
 func NewCommand() *cobra.Command {
