@@ -5,8 +5,8 @@ type: application
 description: >-
   A Helm chart for PG Selector, a little companion for your Postgres HA deployment on Kubernetes 
   that labels its pods with the current replication role(realtime)
-version: 0.1.1 # chart version
-appVersion: "0.1.0" # pg-selector version
+version: 0.2.0 # chart version
+appVersion: "0.2.0" # pg-selector version
 kubeVersion: ">=1.22.0-0" # kubernetes version
 home: https://github.com/freepik-company/pg-selector
 sources:
