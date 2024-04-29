@@ -48,8 +48,15 @@ spec:
           {{- end }}
 
           # TODO: Good first issue
-          livenessProbe: {}
-          readinessProbe: {}
+          {{- with .Values.controller.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+
+          {{- with .Values.controller.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
 
           resources:
             {{- toYaml .Values.controller.resources | nindent 12 }}
