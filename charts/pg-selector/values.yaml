@@ -16,7 +16,6 @@ customClusterRole:
   rules:
   - apiGroups: ['']
     resources:
-      - endpointslices
       - pods
       - services
     verbs: &customClusterRoleVerbsSpec
@@ -27,10 +26,10 @@ customClusterRole:
       - patch
       - update
       - watch
-  #- apiGroups: [ 'discovery.k8s.io/v1' ]
-  #  resources:
-  #    - endpointslices
-  #  verbs: *customClusterRoleVerbsSpec
+  - apiGroups: [ 'discovery.k8s.io' ]
+    resources:
+      - endpointslices
+    verbs: *customClusterRoleVerbsSpec
 
   clusterRoleBinding:
     # Annotations to add to the clusterRoleBinding
@@ -54,7 +53,7 @@ controller:
     repository: ghcr.io/freepik-company/pg-selector
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "v0.3.0"
 
   imagePullSecrets: []
 
