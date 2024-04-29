@@ -27,23 +27,25 @@ spec:
         {{- toYaml .Values.controller.podSecurityContext | nindent 8 }}
       containers:
         - name: manager
-          args:
+          image: "{{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
+          imagePullPolicy: {{ .Values.controller.image.pullPolicy }}
+          command:
+            - /manager
+
           {{- with .Values.controller.extraArgs }}
-          {{ toYaml . | nindent 10 }}
+          args:
+            {{ toYaml . | nindent 10 }}
           {{- end }}
 
           {{- with .Values.controller.env }}
-          {{ toYaml . | nindent 10 }}
+          env:
+            {{ toYaml . | nindent 10 }}
           {{- end }}
 
           {{- with .Values.controller.envFrom }}
-          {{ toYaml . | nindent 10 }}
+          envFrom:
+            {{ toYaml . | nindent 10 }}
           {{- end }}
-
-          command:
-            - /manager
-          image: "{{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
-          imagePullPolicy: {{ .Values.controller.image.pullPolicy }}
 
           # TODO: Good first issue
           livenessProbe: {}
@@ -54,10 +56,10 @@ spec:
           securityContext:
             {{- toYaml .Values.controller.securityContext | nindent 12 }}
 
+          {{- with .Values.controller.extraVolumeMounts }}
           volumeMounts:
-            {{- with .Values.controller.extraVolumeMounts }}
             {{- toYaml . | nindent 12 }}
-            {{- end }}
+          {{- end }}
 
       {{- with .Values.controller.nodeSelector }}
       nodeSelector:
@@ -72,8 +74,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
 
+      {{- with .Values.controller.extraVolumes }}
       volumes:
-        {{- with .Values.controller.extraVolumes }}
         {{- toYaml . | nindent 8 }}
-        {{- end }}
+      {{- end }}
 
