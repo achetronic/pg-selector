@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "pg-selector.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.controller.autoscaling.enabled }}
   replicas: {{ .Values.controller.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "pg-selector.selectorLabels" . | nindent 6 }}
