@@ -43,11 +43,13 @@ deleting the need of a complicated proxy on small HA deployments
 Every configuration parameter can be defined by flags that can be passed to the CLI.
 They are described in the following table:
 
-| Name              | Description                      | Default | Example                         |
-|:------------------|:---------------------------------|:-------:|---------------------------------|
-| `--log-level`     | Define the verbosity of the logs | `info`  | `--log-level info`              |
-| `--disable-trace` | Disable traces from logs         | `false` | `--disable-trace true`          |
-| `--kubeconfig`    | Path to kubeconfig               |   `-`   | `--kubeconfig="~/.kube/config"` |
+| Name                          | Description                          | Default | Example                            |
+|:------------------------------|:-------------------------------------|:-------:|------------------------------------|
+| `--log-level`                 | Define the verbosity of the logs     | `info`  | `--log-level info`                 |
+| `--disable-trace`             | Disable traces from logs             | `false` | `--disable-trace true`             |
+| `--kubeconfig`                | Path to kubeconfig                   |   `-`   | `--kubeconfig="~/.kube/config"`    |
+| `--disable-services-creation` | Disable the creation of the services | `false` | `--disable-services-creation=true` |
+| `--sync-time`                 | Synchronization time in seconds      |  `5s`   | `--sync-time=2m`                   |
 
 ## Environment Variables
 
