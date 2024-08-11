@@ -1,7 +1,7 @@
 # PG Selector
 
-![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/freepik-company/pg-selector)
-![GitHub](https://img.shields.io/github/license/freepik-company/pg-selector)
+![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/achetronic/pg-selector)
+![GitHub](https://img.shields.io/github/license/achetronic/pg-selector)
 
 ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCeSb3yfsPNNVr13YsYNvCAw?label=achetronic&link=http%3A%2F%2Fyoutube.com%2Fachetronic)
 ![GitHub followers](https://img.shields.io/github/followers/achetronic?label=achetronic&link=http%3A%2F%2Fgithub.com%2Fachetronic)
@@ -84,11 +84,11 @@ This project provides binary files and Docker images to make it easy to use wher
 
 ### Binaries
 
-Binary files for the most popular platforms will be added to the [releases](https://github.com/freepik-company/pg-selector/releases)
+Binary files for the most popular platforms will be added to the [releases](https://github.com/achetronic/pg-selector/releases)
 
 ### Docker
 
-Docker images can be found in GitHub's [packages](https://github.com/freepik-company/pg-selector/pkgs/container/pg-selector)
+Docker images can be found in GitHub's [packages](https://github.com/achetronic/pg-selector/pkgs/container/pg-selector)
 related to this repository
 
 > Do you need it in a different container registry? We think this is not needed, but if we're wrong, please, let's discuss
