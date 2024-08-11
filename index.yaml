@@ -2,6 +2,32 @@ apiVersion: v1
 entries:
   pg-selector:
   - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-08-11T03:41:27.31915819Z"
+    description: A Helm chart for PG Selector, a little companion for your Postgres
+      HA deployment on Kubernetes  that labels its pods with the current replication
+      role (realtime)
+    digest: b6a55a4e361dffa7c0db58d0d9776778f81646f15b679521eabcc7d1022ef50a
+    home: https://github.com/achetronic/pg-selector
+    keywords:
+    - pg-selector
+    - kubernetes
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: ahernandez@gmail.com
+      name: Alby Hernández
+      url: https://github.com/achetronic/pg-selector
+    - email: sebastian.varbel@gmail.com.com
+      name: Sebastián Vargas
+      url: https://github.com/achetronic/pg-selector
+    name: pg-selector
+    sources:
+    - https://github.com/achetronic/pg-selector
+    type: application
+    urls:
+    - pg-selector-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
     appVersion: 0.3.6
     created: "2024-04-29T14:23:54.866341719Z"
     description: A Helm chart for PG Selector, a little companion for your Postgres
@@ -271,4 +297,4 @@ entries:
     urls:
     - pg-selector-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-29T14:23:54.866380992Z"
+generated: "2024-08-11T03:41:27.319195851Z"
