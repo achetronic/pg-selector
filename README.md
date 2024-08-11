@@ -1,8 +1,8 @@
 # Helm Charts
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-![Release Charts](https://github.com/freepik-company/pg-selector/workflows/Release%20Charts/badge.svg?branch=main)
-[![Releases downloads](https://img.shields.io/github/downloads/freepik-company/pg-selector/total.svg)](https://github.com/freepik-company/pg-selector/releases)
+![Release Charts](https://github.com/achetronic/pg-selector/workflows/Release%20Charts/badge.svg?branch=main)
+[![Releases downloads](https://img.shields.io/github/downloads/achetronic/pg-selector/total.svg)](https://github.com/achetronic/pg-selector/releases)
 
 PG Selector Helm Charts
 
@@ -14,7 +14,7 @@ Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 Once Helm is set up properly, add the repo as follows:
 
 ```console
-helm repo add pg-selector https://freepik-company.github.io/pg-selector/
+helm repo add pg-selector https://achetronic.github.io/pg-selector/
 ```
 
 You can then run the following command to see the charts.
