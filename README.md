@@ -58,7 +58,7 @@ They are described in the following table:
 
 | Name                   | Description                   | Default | Example                                               |
 |:-----------------------|:------------------------------|:-------:|-------------------------------------------------------|
-| `PG_CONNECTION_STRING` | OBDC styled connection string |   `-`   | `postgresql://username:password@hostname.com:5432/db` |
+| `PG_CONNECTION_STRING` | OBDC styled connection string |   `-`   | `postgresql://username:password@postgres.namespace.svc:5432/db` |
 
 ## Examples
 
