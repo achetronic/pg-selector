@@ -67,7 +67,7 @@ Here you have a complete example to use this command.
 > Output is thrown always in JSON as it is more suitable for automations
 
 ```console
-export PG_CONNECTION_STRING="postgresql://username:password@hostname.com:5432/db"
+export PG_CONNECTION_STRING="postgresql://username:password@postgres.namespace.svc:5432/db"
 
 pg-selector run \
     --log-level=info
