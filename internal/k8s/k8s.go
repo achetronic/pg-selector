@@ -1,10 +1,11 @@
-package kubernetes
+package k8s
 
 import (
 	// Kubernetes clients
 	// Ref: https://pkg.go.dev/k8s.io/client-go/dynamic
 	_ "k8s.io/client-go/dynamic"
-	kubernetes "k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/kubernetes"
+
 	// Ref: https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/client/config
 	ctrl "sigs.k8s.io/controller-runtime"
 )
