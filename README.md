@@ -8,7 +8,7 @@
 ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/achetronic?style=flat&logo=twitter&link=https%3A%2F%2Ftwitter.com%2Fachetronic)
 
 A little companion for your Postgres HA deployment on Kubernetes that labels its pods
-with the current replication role 
+with the current replication role
 
 ## Motivation
 
@@ -18,25 +18,26 @@ This tool keeps 'primary' and 'standby' nodes synchronized and promotes 'standby
 This commonly implies having a proxy in front of all Postgres nodes to route writing operations to 'primary',
 balance reading operations to the rest of nodes, and other advantages.
 
-This proxy-pattern helps to mask failures in a way the client application commonly doesn't notice, 
-being super useful in huge productive customer-facing systems. 
+This proxy-pattern helps to mask failures in a way the client application commonly doesn't notice,
+being super useful in huge productive customer-facing systems.
 
 But what happens if you require HA on smaller systems?
-Is the overhead of configuring perfect proxy worth? 
+Is the overhead of configuring perfect proxy worth?
 The answer is NO.
 
-Replication Manager is taking care of your Postgres, so you always have a 'primary' available. 
+Replication Manager is taking care of your Postgres, so you always have a 'primary' available.
 But Kubernetes cannot distinguish the role of your nodes, or it can?
 
-This application is a little CLI that checks the roles of your Postgres Pods from time to time, 
+This application is a little CLI that checks the roles of your Postgres Pods from time to time,
 and labels them with the role.
 
-This way you can create a Kubernetes Service that points always to the 'primary' 
+This way you can create a Kubernetes Service that points always to the 'primary'
 deleting the need of a complicated proxy on small HA deployments
 
 ## Diagram
 
-<img src="https://raw.githubusercontent.com/achetronic/pg-selector/master/docs/img/pg-selector.png" alt="PG Selector diagram" width="600">
+<!-- markdownlint-disable MD033 -->
+<img src="https://raw.githubusercontent.com/achetronic/pg-selector/master/docs/img/pg-selector.png" alt="PG Selector diagram" width="600" />
 
 ## Flags
 
@@ -46,9 +47,8 @@ They are described in the following table:
 | Name                          | Description                          | Default | Example                            |
 |:------------------------------|:-------------------------------------|:-------:|------------------------------------|
 | `--log-level`                 | Define the verbosity of the logs     | `info`  | `--log-level info`                 |
-| `--disable-trace`             | Disable traces from logs             | `false` | `--disable-trace true`             |
 | `--kubeconfig`                | Path to kubeconfig                   |   `-`   | `--kubeconfig="~/.kube/config"`    |
-| `--disable-services-creation` | Disable the creation of the services | `false` | `--disable-services-creation=true` |
+| `--services-creation`         | Enable the creation of the services  | `true`  | `--services-creation=false` |
 | `--sync-time`                 | Synchronization time in seconds      |  `5s`   | `--sync-time=2m`                   |
 
 ## Environment Variables
@@ -69,13 +69,13 @@ Here you have a complete example to use this command.
 ```console
 export PG_CONNECTION_STRING="postgresql://username:password@postgres.namespace.svc:5432/db"
 
-pg-selector run \
+pgs run \
     --log-level=info
     --kubeconfig="./path"
 ```
 
 > ATTENTION:
-> If you detect some mistake on the examples, open an issue to fix it. 
+> If you detect some mistake on the examples, open an issue to fix it.
 > This way we all will benefit
 
 ## How to use
@@ -110,6 +110,7 @@ The code will be reviewed and tested (always)
 > on each line of code to improve this project on each iteration.
 
 ## License
+<!-- markdownlint-disable MD046 -->
 
 Copyright 2022.
 
