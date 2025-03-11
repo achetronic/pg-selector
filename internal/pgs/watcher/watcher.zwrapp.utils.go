@@ -14,6 +14,7 @@ import (
 const (
 	k8sLabelKeyPGSReplicationRole = "pg-selector/replication-role"
 	k8sLabelKeyAppManagedBy       = "app.kubernetes.io/managed-by"
+	k8sLabelValueAppManagedBy     = "pg-selector"
 
 	pgReplicationRoleStandby = "standby"
 	pgReplicationRolePrimary = "primary"
@@ -164,7 +165,7 @@ func (w *WatcherT) createPGPodsServices() (err error) {
 			delete(svcRes.Labels, k)
 		}
 	}
-	svcRes.Labels[k8sLabelKeyAppManagedBy] = "pg-selector"
+	svcRes.Labels[k8sLabelKeyAppManagedBy] = k8sLabelValueAppManagedBy
 
 	// create pg primary service
 	primaryService := corev1.Service{
@@ -220,6 +221,34 @@ func (w *WatcherT) createPGPodsServices() (err error) {
 			}
 		} else {
 			err = fmt.Errorf("error updating '%s' standby service: %w", standbyService.Name, err)
+			return err
+		}
+	}
+
+	return err
+}
+
+func (w *WatcherT) deletePGServices() (err error) {
+	labelSelector := strings.Join([]string{k8sLabelKeyAppManagedBy, k8sLabelValueAppManagedBy}, "=")
+
+	var services *corev1.ServiceList
+	services, err = w.k8s.clt.CoreV1().Services(w.k8s.namespace).List(w.ctx, metav1.ListOptions{
+		LabelSelector: labelSelector,
+	})
+	if err != nil {
+		err = fmt.Errorf("error getting created pg services: %w", err)
+		return err
+	}
+
+	if len(services.Items) == 0 {
+		err = fmt.Errorf("created pg services not found")
+		return err
+	}
+
+	for _, svc := range services.Items {
+		err := w.k8s.clt.CoreV1().Services(w.k8s.namespace).Delete(w.ctx, svc.Name, metav1.DeleteOptions{})
+		if err != nil {
+			err = fmt.Errorf("error deleting created pg services: %w", err)
 			return err
 		}
 	}

@@ -110,6 +110,15 @@ func (w *WatcherT) Run(ctx context.Context, wg *sync.WaitGroup) {
 		case <-ctx.Done():
 			{
 				runWatcher = false
+				if w.k8s.svcCreate {
+					err = w.deletePGServices()
+					if err != nil {
+						logExtra.Set("error", err.Error())
+						w.log.Error("unable to delete pg created services", logExtra)
+						continue
+					}
+				}
+
 				w.log.Info("execution cancelled", logExtra)
 			}
 		default:

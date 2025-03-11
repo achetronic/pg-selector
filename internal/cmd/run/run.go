@@ -84,7 +84,7 @@ func RunCommand(cmd *cobra.Command, args []string) {
 
 	var wg sync.WaitGroup
 	wg.Add(1)
-	w.Run(ctx, &wg)
+	go w.Run(ctx, &wg)
 
 	sig := <-sigs
 	cancel()
