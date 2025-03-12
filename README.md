@@ -43,21 +43,20 @@ deleting the need of a complicated proxy on small HA deployments
 Every configuration parameter can be defined by flags that can be passed to the CLI.
 They are described in the following table:
 
-| Name                          | Description                          | Default | Example                            |
-|:------------------------------|:-------------------------------------|:-------:|------------------------------------|
-| `--log-level`                 | Define the verbosity of the logs     | `info`  | `--log-level info`                 |
-| `--disable-trace`             | Disable traces from logs             | `false` | `--disable-trace true`             |
-| `--kubeconfig`                | Path to kubeconfig                   |   `-`   | `--kubeconfig="~/.kube/config"`    |
-| `--disable-services-creation` | Disable the creation of the services | `false` | `--disable-services-creation=true` |
-| `--sync-time`                 | Synchronization time in seconds      |  `5s`   | `--sync-time=2m`                   |
+| Name                  | Description                         | Default | Example                         |
+|:----------------------|:------------------------------------|:-------:|---------------------------------|
+| `--log-level`         | Define the verbosity of the logs    | `info`  | `--log-level info`              |
+| `--kubeconfig`        | Path to kubeconfig                  |   `-`   | `--kubeconfig="~/.kube/config"` |
+| `--services-creation` | Enable the creation of the services | `true`  | `--services-creation=false`     |
+| `--sync-time`         | Synchronization time in seconds     |  `5s`   | `--sync-time=2m`                |
 
 ## Environment Variables
 
 Security-critical parameters are managed by environment variables.
 They are described in the following table:
 
-| Name                   | Description                   | Default | Example                                               |
-|:-----------------------|:------------------------------|:-------:|-------------------------------------------------------|
+| Name                   | Description                   | Default | Example                                                         |
+|:-----------------------|:------------------------------|:-------:|-----------------------------------------------------------------|
 | `PG_CONNECTION_STRING` | OBDC styled connection string |   `-`   | `postgresql://username:password@postgres.namespace.svc:5432/db` |
 
 ## Examples
