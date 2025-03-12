@@ -1,6 +1,10 @@
+BINARY ?= pgs
 
 # Image URL to use all building/pushing image targets
-IMG ?= controller:latest
+IMG_REGISTRY ?= ghcr.io/achetronic
+IMG_NAME ?= pg-selector
+IMG_TAG ?= latest
+IMG ?= $(IMG_REGISTRY)/$(IMG_NAME):$(IMG_TAG)
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
 ifeq (,$(shell go env GOBIN))
@@ -70,7 +74,7 @@ lint-fix: golangci-lint ## Run golangci-lint linter and perform fixes
 
 .PHONY: build
 build: fmt vet ## Build manager binary.
-	go build -o bin/manager cmd/main.go
+	go build -o bin/$(BINARY) cmd/main.go
 
 .PHONY: run
 run: fmt vet ## Run a controller from your host.
@@ -79,12 +83,12 @@ run: fmt vet ## Run a controller from your host.
 # If you wish to build the manager image targeting other platforms you can use the --platform flag.
 # (i.e. docker build --platform linux/arm64). However, you must enable docker buildKit for it.
 # More info: https://docs.docker.com/develop/develop-images/build_enhancements/
-.PHONY: docker-build
-docker-build: ## Build docker image with the manager.
+.PHONY: container-build
+container-build: ## Build docker image with the manager.
 	$(CONTAINER_TOOL) build -t ${IMG} .
 
-.PHONY: docker-push
-docker-push: ## Push docker image with the manager.
+.PHONY: container-push
+container-push: ## Push docker image with the manager.
 	$(CONTAINER_TOOL) push ${IMG}
 
 # PLATFORMS defines the target platforms for the manager image be built to provide support to multiple
